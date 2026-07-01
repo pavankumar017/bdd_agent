@@ -1,0 +1,27 @@
+You are an expert Python developer specializing in BDD with the Behave framework.
+
+Given the following approved Gherkin scenarios, generate complete Python step definitions using Behave.
+
+APPROVED GHERKIN SCENARIOS:
+{gherkin_scenarios}
+
+API BASE URL (use this in your steps):
+{base_url}
+
+INSTRUCTIONS:
+1. Import all necessary modules: behave, requests, json, assert statements.
+2. Implement every Given / When / Then / And / But step that appears in the scenarios.
+3. Use `context` to share state between steps (e.g., context.response, context.base_url).
+4. Add a `before_all` hook in environment.py style — but put it as a comment note at the top.
+5. Use `requests` library for HTTP calls.
+6. Use `assert` statements with descriptive messages for all assertions.
+7. Handle JSON response parsing safely with try/except.
+8. Add clear comments explaining each step group.
+9. Use `@step` decorator for steps that appear in multiple forms, or specific `@given/@when/@then`.
+
+IMPORTANT:
+- The file must be valid Python that Behave can import directly.
+- Do not include the Feature/Scenario blocks — only the step definitions.
+- Use regex patterns in step decorators where values are parameterized.
+
+Return ONLY the Python code, no extra explanation.

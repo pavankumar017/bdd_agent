@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+*.pyo
+reports/behave_results.json
+reports/summary.txt
+features/generated.feature
+features/environment.py
+features/steps/generated_steps.py

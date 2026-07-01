@@ -1,0 +1,49 @@
+You are an expert QA engineer specializing in BDD (Behavior-Driven Development).
+
+Given the following API specification, generate comprehensive Gherkin test scenarios.
+
+API SPECIFICATION:
+{api_spec}
+
+INSTRUCTIONS:
+1. Generate between 5 and 10 meaningful Gherkin scenarios covering:
+   - Happy path (successful requests)
+   - Validation errors (missing/invalid fields)
+   - Authentication/authorization cases (if applicable)
+   - Edge cases (empty data, boundary values)
+   - Error responses (404, 500, etc.)
+
+2. Use standard Gherkin syntax: Scenario, Given, When, Then, And, But
+   Use Scenario Outline + Examples for data-driven cases where appropriate.
+
+3. Be specific with expected status codes, response fields, and values.
+
+4. Format your response EXACTLY like this — use the delimiters as shown, no JSON:
+
+###SCENARIO###
+TITLE: Successful retrieval of all posts
+GHERKIN:
+Scenario: Successful retrieval of all posts
+  Given the API is available
+  When I send a GET request to "/posts"
+  Then the response status code should be 200
+  And the response body should be a JSON array
+###END###
+
+###SCENARIO###
+TITLE: Retrieve a post by valid ID
+GHERKIN:
+Scenario: Retrieve a post by valid ID
+  Given the API is available
+  When I send a GET request to "/posts/1"
+  Then the response status code should be 200
+  And the response body should contain "id"
+###END###
+
+RULES:
+- Start every scenario block with ###SCENARIO###
+- End every scenario block with ###END###
+- TITLE: line contains only the short title, nothing else
+- GHERKIN: line is followed immediately by the Gherkin text
+- Do NOT use JSON, do NOT use quotes around the title or gherkin
+- Do NOT add any text outside the ###SCENARIO### ... ###END### blocks
